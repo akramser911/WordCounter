@@ -1,0 +1,145 @@
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+  }
+* {
+    margin: 0px;
+}
+body {
+    background-image: linear-gradient(to right, #F7CCAC , rgb(212, 113, 212));
+}
+
+#cap-text {
+    color: #F7CCAC;
+    font-size: 25px;
+    font-weight: lighter;
+}
+.card {
+    background-color: #3A3845;
+    border-radius: 20px;
+    position: relative;
+    top: 25vh;
+    /*background-image: linear-gradient(to right, red , yellow);*/
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(53, 53, 53);
+    padding: 10px;
+}
+
+
+  
+  .card::before {
+    content: "";
+    width: 105%;
+    height: 102%;
+    border-radius: 15px;
+    background-image: linear-gradient(
+      var(--rotate)
+      , #F7CCAC, #A267AC 43%, #6867AC);
+      position: absolute;
+      z-index: -1;
+      top: 3%;
+      left: -2.5%;
+      animation: spin 2.5s linear infinite;
+  }
+  
+  .card::after {
+    position: absolute;
+    content: "";
+    top: calc(var(--card-height) / 6);
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(
+      var(--rotate)
+      , #F7CCAC, #A267AC 43%, #6867AC);
+      opacity: 1;
+    transition: opacity .5s;
+    animation: spin 2.5s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      --rotate: 0deg;
+    }
+    100% {
+      --rotate: 360deg;
+    }
+  }
+/*------------------------------------------------------------------------------------------*/
+.center{
+    text-align: center;
+}
+
+#inputField
+ {
+     display: block;
+     background-color: rgb(212, 113, 212);
+     width: 100%;
+     height: 200px;
+     text-align: center;
+     clear: both;
+ }
+ #inputField:hover {
+     background-color: #F7CCAC;
+ }
+ .result {
+     display: flex;
+     justify-content: space-around;
+     font-weight: lighter;
+ }
+ .result h2 {
+    
+        color: #F7CCAC ;
+        font-weight: lighter;
+     text-align: center;
+     font-size: 20px;
+     border: 1px solid  #F7CCAC;
+     border-radius: 10px;
+     padding: 2px;
+ }
+ #calculateBtn {
+     color: black;
+     background-color: rgb(211, 31, 211);
+     margin-right: 5px;
+     margin-bottom: 10px;
+     font-weight: lighter;
+     font-size: 20px;
+ }
+
+ #letters{
+    color: #F7CCAC ;
+ }
+ #words{
+    color: #F7CCAC ;
+ }
+
+ #resetBtn {
+    font-weight: lighter;
+    font-size: 20px;
+     background: none;
+     background-color: #F7CCAC;
+     border: 1px solid black;
+     border-radius: 5px;
+ }
+
+ /* responsive design*/
+ @media (max-width: 768px){
+     .card {
+         width: 85%;
+     }
+     #calculateBtn {
+         margin-bottom: 8px;
+     }
+     .wordsContainer{
+         margin-right: 10px;
+     }
+     
+ }
+ 
